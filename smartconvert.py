@@ -27,7 +27,18 @@ def main():
     with open(sys.argv[1]) as f:
         for line in f:
             inserted = False
-            doc = json.loads(line)
+
+            try:
+                doc = json.loads(line)
+            except:
+                exc_type, exc_value, exc_traceback = sys.exc_info()
+                lines = traceback.format_exception(exc_type, exc_value,
+                                                   exc_traceback)
+                txt = ''.join('' + line for line in lines)
+                print(txt)
+                bot.sendMessage(chat_id=chat_id, text=str(txt))
+                doc = {"limit": {"track": "err"}}
+
             if doc.get('limit') is None:
                 tweet_id = doc.get('id')
 
