@@ -4,4 +4,4 @@ Running:
 - `cp config.example.py config.py`
 - edit `config.py`
 - `pip install -r requirements.txt`
-- run `smartconverter.py twitterfile.json`
+- `python smartconverter.py twitterfile.json`
