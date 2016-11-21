@@ -108,10 +108,11 @@ def main():
                                quoted=t_quoted,
                                quoted_id=t_quoted_id,
                                user_id=u_id)
-
-                u_created_at = arrow.get(doc.get('user').get('created_at'),
-                                         "ddd MMM DD HH:mm:ss Z YYYY"
-                                         ).format('YYYY-MM-DD HH:mm:ss ZZ')
+                try:
+                    u_created_at = arrow.get(doc.get('user').get('created_at'), "ddd MMM DD HH:mm:ss Z YYYY").format('YYYY-MM-DD HH:mm:ss ZZ')
+                except:
+                    u_created_at = None
+                    bot.sendMessage(chat_id=chat_id, text="date error user")
                 u_name = doc.get('user').get('name')
                 u_screen_name = doc.get('user').get('screen_name')
                 u_description = doc.get('user').get('description')

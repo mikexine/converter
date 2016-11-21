@@ -50,7 +50,7 @@ class Tweets(DeclarativeBase):
 class Users():
     # id = Column(Integer, primary_key=True)
     userid = Column(BigInteger, primary_key=True)
-    created_at = Column('created_at', DateTime)
+    created_at = Column('created_at', DateTime, nullable=True)
     name = Column('name', String)
     screen_name = Column('screen_name', String)
     description = Column('description', String, nullable=True)
