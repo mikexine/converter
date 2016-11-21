@@ -196,7 +196,12 @@ if __name__ == '__main__':
         main()
     except:
         exc_type, exc_value, exc_traceback = sys.exc_info()
-        lines = traceback.format_exception(exc_type, exc_value, exc_traceback)
-        txt = ''.join('' + line for line in lines)
-        print(txt)
-        bot.sendMessage(chat_id=chat_id, text=str(txt))
+        lines1 = traceback.format_exception(exc_type)
+        lines2 = traceback.format_exception(exc_value)
+        lines3 = traceback.format_exception(exc_traceback)
+        try:
+            bot.sendMessage(chat_id=chat_id, text=str(lines1))
+            bot.sendMessage(chat_id=chat_id, text=str(lines2))
+            bot.sendMessage(chat_id=chat_id, text=str(lines3))
+        except:
+            pass
