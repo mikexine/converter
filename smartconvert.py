@@ -200,6 +200,7 @@ if __name__ == '__main__':
         lines2 = traceback.format_exception(exc_value)
         lines3 = traceback.format_exception(exc_traceback)
         try:
+            bot.sendMessage(chat_id=chat_id, text="err on " + sys.argv[1])
             bot.sendMessage(chat_id=chat_id, text=str(lines1))
             bot.sendMessage(chat_id=chat_id, text=str(lines2))
             bot.sendMessage(chat_id=chat_id, text=str(lines3))
