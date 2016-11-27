@@ -5,3 +5,4 @@ env/
 *.json
 team-keywords/
 config.py
+v2/
