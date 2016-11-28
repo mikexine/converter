@@ -9,7 +9,6 @@ from tweet_utils import sentiment_analysis
 from telegram import Bot
 from modelsnew import Tweets, db_connect, create_db_session, create_tables
 import config
-import importlib
 import traceback
 
 chat_id = config.tgchat
@@ -26,7 +25,6 @@ def main():
     rows_inserted = 0
     with open(sys.argv[1]) as f:
         for line in f:
-            inserted = False
 
             try:
                 doc = json.loads(line)
@@ -93,7 +91,9 @@ def main():
                 u_id = doc.get('user').get('id')
 
                 try:
-                    u_created_at = arrow.get(doc.get('user').get('created_at'), "ddd MMM DD HH:mm:ss Z YYYY").format('YYYY-MM-DD HH:mm:ss ZZ')
+                    u_created_at = arrow.get(doc.get('user').get('created_at'),
+                                             "ddd MMM DD HH:mm:ss Z YYYY"
+                                             ).format('YYYY-MM-DD HH:mm:ss ZZ')
                 except:
                     u_created_at = None
                     bot.sendMessage(chat_id=chat_id, text="date error user")
@@ -114,7 +114,7 @@ def main():
                 for k in config.keywords:
                     if any(w in line.lower() for w in config.keywords[k]):
                         keys[k] = True
-              
+
                 tweet = Tweets(tweetid=tweet_id,
                                published_at=t_published_at,
                                tweet_text=t_tweet_text,
