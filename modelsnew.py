@@ -21,7 +21,7 @@ def create_tables(engine):
 
 
 class Tweets(DeclarativeBase):
-    __tablename__ = "tw_users"
+    __tablename__ = "all"
 
     id = Column(BigInteger, primary_key=True)
     tweetid = Column(BigInteger)
