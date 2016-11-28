@@ -143,12 +143,12 @@ def main():
                                statuses_count=u_statuses_count,
                                verified=u_verified,
                                geo_enabled=u_geo_enabled,
-                               adidas = keys.get('adidas', False),
-                               nike = keys.get('nike', False),
-                               barcelona = keys.get('barcelona', False),
-                               real = keys.get('real', False),
-                               messi = keys.get('messi', False),
-                               ronaldo = keys.get('ronaldo', False))
+                               adidas=keys.get('adidas', False),
+                               nike=keys.get('nike', False),
+                               barcelona=keys.get('barcelona', False),
+                               real=keys.get('realmadrid', False),
+                               messi=keys.get('messi', False),
+                               ronaldo=keys.get('ronaldo', False))
 
                 db_session.add(tweet)
                 rows_inserted += 1
